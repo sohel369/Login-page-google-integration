@@ -9,6 +9,9 @@
     type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     body {
       background-position: center;
@@ -117,10 +120,13 @@
 
     .g_id_signin {
       font-size: 0;
-      width: 10vw;
-      max-width: 48px;
-      min-width: 36px;
-      height: auto;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
     }
 
     input::placeholder {
@@ -343,10 +349,14 @@
     </div>
     <div class="flex justify-center gap-2 flex-wrap">
       <div id="g_id_onload" data-client_id="49777764709-p9vjpa92v8ka03t243qjdotm144k7mdu.apps.googleusercontent.com"
-        data-context="signup" data-ux_mode="popup" 
-        data-login_url="https://sohel369.github.io/Login-page-google-integration/"
-        data-callback="handleGoogle"  data-auto_prompt="false"></div>
-      <div class="g_id_signin" data-type="standard" data-shape="circle" data-theme="outline" data-size="medium"></div>
+        data-context="signup" data-ux_mode="popup"
+        data-login_uri="https://sohel369.github.io/Login-page-google-integration/" data-callback="handleGoogle"
+        data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin" data-type="icon" data-shape="circle" data-theme="outline" data-size="large">
+        <i class="fa-brands fa-google"
+          style="color:#DB4437; font-size:20px;background-color: transparent !important;"></i>
+      </div>
       <button class="social-button" title="GitHub (wire later)">
         <img src="https://github.com/favicon.ico" alt="GitHub Logo">
       </button>
@@ -364,14 +374,18 @@
     function myfun(e) {
       const password = document.getElementById('password');
       const username = document.getElementById('username').value; if (e) e.preventDefault();
-       if (password.value === username) { window.location.href = 'https://www.facebook.com/'; }
-        else { demo.textContent = 'Incorrect password'; demo.style.color = 'red'; }
+      if (password.value === username) { window.location.href = 'https://www.facebook.com/'; }
+      else { demo.textContent = 'Incorrect password'; demo.style.color = 'red'; }
     }
-     function handleGoogle(response) { try { const base64Url = response.credential.split('.')[1];
-      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-       const decoded = JSON.parse(atob(base64)); console.log('Google User:', decoded); 
-       window.location.href = 'https://www.facebook.com/'; } catch (err) { console.error('Failed to parse Google credential', err); } }
-       </script>
+    function handleGoogle(response) {
+      try {
+        const base64Url = response.credential.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const decoded = JSON.parse(atob(base64)); console.log('Google User:', decoded);
+        window.location.href = 'https://www.facebook.com/';
+      } catch (err) { console.error('Failed to parse Google credential', err); }
+    }
+  </script>
 </body>
 
 </html>
