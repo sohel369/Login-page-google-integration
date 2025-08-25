@@ -293,45 +293,85 @@
     <h1 class="header">Sign up to go Facebook</h1>
     <form onsubmit="myfun(event)" autocapitalize="on" autocomplete="on">
       <div class="name-grid">
-        <div> <label for="firstName"> First Name <span style="color: red; font-size: larger;">*</span> </label> <input
-            type="text" id="firstName" placeholder="Enter your first name" name="firstName" required autofocus
-            class="input-field"> </div>
-        <div> <label for="lastName"> Last Name <span style="color: red; font-size: larger;">*</span> </label> <input
-            type="text" id="lastName" name="lastName" placeholder="Enter your last name" required class="input-field">
+        <div>
+          <label for="firstName"> First Name
+            <span style="color: red; font-size: larger;">*</span>
+          </label>
+          <input type="text" id="firstName" placeholder="Enter your first name" name="firstName" required autofocus
+            class="input-field">
+        </div>
+        <div>
+          <label for="lastName"> Last Name
+            <span style="color: red; font-size: larger;">*</span>
+          </label>
+          <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required
+            class="input-field">
         </div>
       </div>
       <div class="name-grid">
-        <div class="mt-4"> <label for="username">Username</label> <input type="text" id="username"
-            placeholder="Enter your username" name="username" class="input-field"> </div>
-        <div class="mt-4"> <label for="password">Password</label> <input type="password" id="password"
-            placeholder="Enter your password" name="password" required pattern=".{8,}"
-            title="Password must be at least 8 characters long" class="input-field"> </div>
+        <div class="mt-4">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter your username" name="username" class="input-field">
+        </div>
+        <div class="mt-4">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" name="password" required
+            pattern=".{8,}" title="Password must be at least 8 characters long" class="input-field">
+        </div>
       </div>
-      <div class="mt-4"> <label for="email"> Email <span style="color: red; font-size: larger;">*</span> </label> <input
-          type="email" id="email" name="email" placeholder="Enter your Email" required class="input-field"> </div>
-      <p id="demo" class="mt-2 text-sm text-white"></p> <button type="submit" id="submit" class="submit"> Sign Up
+      <div class="mt-4">
+        <label for="email"> Email
+          <span style="color: red; font-size: larger;">*</span>
+        </label>
+        <input type="email" id="email" name="email" placeholder="Enter your Email" required class="input-field">
+      </div>
+      <p id="demo" class="mt-2 text-sm text-white"></p>
+      <button type="submit" id="submit" class="submit">
+        Sign Up
       </button>
     </form>
     <div class="relative my-6">
       <div class="absolute inset-0 flex items-center">
         <div class="w-full border-t border-gray-300"></div>
       </div>
-      <div class="relative flex justify-center text-sm"> <span class="px-2 bg-transparent text-gray-200 mb-5"> Or sign
-          up with </span> </div>
+      <div class="relative flex justify-center text-sm">
+        <span class="px-2 bg-transparent text-gray-200 mb-5">
+          Or sign
+          up with
+        </span>
+      </div>
     </div>
     <div class="flex justify-center gap-2 flex-wrap">
       <div id="g_id_onload" data-client_id="49777764709-p9vjpa92v8ka03t243qjdotm144k7mdu.apps.googleusercontent.com"
-        data-context="signup" data-ux_mode="popup" data-login_url="http://127.0.0.1:5500/index.html"
-        data-callback="handleGoogle" data-auto_prompt="false"></div>
+        data-context="signup" data-ux_mode="popup" data-login_url="http://127.0.0.1:5500/index.html" 
+        data-login_url="https://sohel369.github.io/Login-page-google-integration/"
+        data-callback="handleGoogle"  data-auto_prompt="false"></div>
       <div class="g_id_signin" data-type="standard" data-shape="circle" data-theme="outline" data-size="medium"></div>
-      <button class="social-button" title="GitHub (wire later)"> <img src="https://github.com/favicon.ico"
-          alt="GitHub Logo"> </button> <button class="social-button" title="Facebook (wire later)"> <img
-          src="https://www.facebook.com/favicon.ico" alt="Facebook Logo"> </button>
+      <button class="social-button" title="GitHub (wire later)">
+        <img src="https://github.com/favicon.ico" alt="GitHub Logo">
+      </button>
+      <button class="social-button" title="Facebook (wire later)">
+        <img src="https://www.facebook.com/favicon.ico" alt="Facebook Logo">
+      </button>
     </div>
-    <p class="mt-4 text-center text-sm text-gray-200"> Already have an account? <a href="#"
-        class="text-blue-400 hover:underline">Log in here</a> </p>
+    <p class="mt-4 text-center text-sm text-gray-200">
+      Already have an
+      account?
+      <a href="#" class="text-blue-400 hover:underline">Log in here</a>
+    </p>
   </div>
-  <script> const demo = document.getElementById('demo'); function myfun(e) { const password = document.getElementById('password'); const username = document.getElementById('username').value; if (e) e.preventDefault(); if (password.value === username) { window.location.href = 'https://www.facebook.com/'; } else { demo.textContent = 'Incorrect password'; demo.style.color = 'red'; } } function handleGoogle(response) { try { const base64Url = response.credential.split('.')[1]; const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/'); const decoded = JSON.parse(atob(base64)); console.log('Google User:', decoded); window.location.href = 'https://www.facebook.com/'; } catch (err) { console.error('Failed to parse Google credential', err); } } </script>
+  <script> const demo = document.getElementById('demo');
+    function myfun(e) {
+      const password = document.getElementById('password');
+      const username = document.getElementById('username').value; if (e) e.preventDefault();
+       if (password.value === username) { window.location.href = 'https://www.facebook.com/'; }
+        else { demo.textContent = 'Incorrect password'; demo.style.color = 'red'; }
+    }
+     function handleGoogle(response) { try { const base64Url = response.credential.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+       const decoded = JSON.parse(atob(base64)); console.log('Google User:', decoded); 
+       window.location.href = 'https://www.facebook.com/'; } catch (err) { console.error('Failed to parse Google credential', err); } }
+       </script>
 </body>
 
 </html>
